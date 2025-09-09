@@ -1,0 +1,9 @@
+{
+  "name": "Medicinsk Quiz",
+  "short_name": "MedQuiz",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#12081b",
+  "theme_color": "#4b1d73",
+  "icons": []
+}

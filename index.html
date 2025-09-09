@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Medicinsk Quiz</title>
+  <meta name="theme-color" content="#4b1d73" />
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app" class="app-shell">
+    <noscript>Aktivera JavaScript för att använda appen.</noscript>
+  </div>
+  <template id="start-screen-template">
+    <section class="screen start-screen">
+      <header>
+        <h1>Medicinsk Quiz</h1>
+        <p class="tagline">Daglig repetition för bättre resultat</p>
+      </header>
+      <div class="stats-grid" id="stats-grid">
+        <!-- Dynamically filled -->
+      </div>
+      <div class="actions">
+        <button class="primary" id="start-random-btn">Starta Quiz</button>
+        <button class="secondary" id="focus-categories-btn">Fokusera på svaga områden</button>
+        <button class="ghost" id="reset-progress-btn">Återställ framsteg</button>
+      </div>
+      <footer class="footer-note">Framsteg lagras lokalt i din telefon.</footer>
+    </section>
+  </template>
+
+  <template id="focus-screen-template">
+    <section class="screen focus-screen">
+      <header class="compact">
+        <button class="icon-btn" id="back-to-start" aria-label="Tillbaka">←</button>
+        <h2>Välj kategorier</h2>
+      </header>
+      <p>Rekommenderade (lägst träffsäkerhet) är markerade.</p>
+      <div id="category-list" class="category-list"></div>
+      <div class="actions">
+        <button class="primary" id="start-focused-btn">Starta valt fokus</button>
+      </div>
+    </section>
+  </template>
+
+  <template id="quiz-screen-template">
+    <section class="screen quiz-screen">
+      <header class="compact">
+        <button class="icon-btn" id="quit-quiz" aria-label="Avbryt">✕</button>
+        <div class="progress-wrapper">
+          <div id="session-progress" class="progress-bar"><span></span></div>
+        </div>
+      </header>
+      <div class="question-wrapper">
+        <div class="question-meta" id="question-meta"></div>
+        <h2 id="question-text"></h2>
+        <ul id="options-list" class="options"></ul>
+        <div id="feedback" class="feedback hidden"></div>
+      </div>
+      <div class="actions dynamic">
+        <button class="primary wide hidden" id="next-question-btn">Nästa fråga</button>
+      </div>
+    </section>
+  </template>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
